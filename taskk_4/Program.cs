@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace taskk_4
 {
@@ -19,27 +15,19 @@ namespace taskk_4
         static void Main(string[] args)
         {
             int[] digits = new int[158];//результат
-            int[] mas2 = new int[80];//для умножения
+            int[] mas2 = new int[100];//для умножения
             int[] sum1 = new int[158];
             int[] sum2 = new int[159];
 
-            int n = 21;
+            int n = 1;
             for (int i = 0; i < mas2.Length; i++)
             {
                 mas2[i] = n;
                 n++;
             }
-            long fak = 1;
-            for (int i = 1; i < 21; i++)
-            {
-                fak *= i;
-            }
+           
             int temp = 0;
-            int[] ddd = fak.ToString().Select(c => (int)char.GetNumericValue(c)).ToArray();
-            for (int i = 0; i < ddd.Length; i++)
-            {
-                digits[digits.Length - 1 - i] = ddd[ddd.Length - 1 - i];
-            }
+            digits[digits.Length - 1] = 1;
 
             for (int i = 0; i < mas2.Length; i++)
             {
@@ -61,9 +49,8 @@ namespace taskk_4
                     temp = ((sum1[sum1.Length - 1 - y] + sum2[sum2.Length - 1 - y])+temp) / 10;
                 }
             }
-            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("100! = ");
-            Console.ResetColor();
+            
             Show(digits);
             Console.ReadKey();
         }
